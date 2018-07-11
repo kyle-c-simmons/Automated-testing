@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import sun.jvm.hotspot.debugger.Page;
 
 import java.net.URI;
 
@@ -18,7 +19,6 @@ public class DemoQATesting {
 
     private WebDriver driver;
     Constants constants = new Constants();
-
 
     @Before
     public void setup() {
@@ -99,12 +99,12 @@ public class DemoQATesting {
     public void AutocompleteTest() throws InterruptedException {
         driver.manage().window().maximize();
         DemoQAHome qaHome = PageFactory.initElements(driver, DemoQAHome.class);
+        DemoQAAutoComplete qaAutoComplete = PageFactory.initElements(driver, DemoQAAutoComplete.class);
 
         // Go to autocomplete
         driver.get(constants.URL1);
         qaHome.clickAutoComplete();
 
-        DemoQAAutoComplete qaAutoComplete = PageFactory.initElements(driver, DemoQAAutoComplete.class);
         Actions action = new Actions(driver);
 
         // Click the tag text field
@@ -123,8 +123,17 @@ public class DemoQATesting {
     public void DatePickerTest() {
         driver.manage().window().maximize();
         DemoQAHome qaHome = PageFactory.initElements(driver, DemoQAHome.class);
+        DemoQADatePicker qaDatePicker = PageFactory.initElements(driver, DemoQADatePicker.class);
 
+        // Get url
+        driver.get(constants.URL1);
+        qaHome.clickDatePicker();
 
+        Actions action = new Actions(driver);
+
+        // Click data picker and get date
+        action.click(qaDatePicker.getDatePickerField).perform();
+        action.click(qaDatePicker.getDate).perform();
     }
 
     @Test

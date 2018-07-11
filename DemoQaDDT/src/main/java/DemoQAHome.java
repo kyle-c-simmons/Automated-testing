@@ -40,7 +40,7 @@ public class DemoQAHome {
         getAutoComplete.click();
     }
 
-    public void getDatePicker() {
+    public void clickDatePicker() {
 
         getDatePicker.click();
     }
