@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import sun.jvm.hotspot.debugger.Page;
 
 import java.net.URI;
 
@@ -133,7 +132,8 @@ public class DemoQATesting {
 
         // Click data picker and get date
         action.click(qaDatePicker.getDatePickerField).perform();
-        action.click(qaDatePicker.getDate).perform();
+       // action.moveByOffset()
+        //action.click(qaDatePicker.getDate).perform();
     }
 
     @Test

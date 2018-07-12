@@ -39,7 +39,7 @@ public class DemoSiteTesting {
         driver.manage().window().maximize();
 
         test = report.startTest("Verify user can create account");
-        test.log(LogStatus.INFO, "Browser started");
+              test.log(LogStatus.INFO, "Browser started");
 
         // Home page
         driver.get("https://thedemosite.co.uk/");
